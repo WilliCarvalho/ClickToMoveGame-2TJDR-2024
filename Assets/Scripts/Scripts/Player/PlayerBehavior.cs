@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.EventSystems;
 
 [RequireComponent(typeof(NavMeshAgent))]
 public class PlayerBehavior : MonoBehaviour
@@ -12,6 +13,9 @@ public class PlayerBehavior : MonoBehaviour
     [SerializeField] private LayerMask attackLayer;
     [SerializeField] private ParticleSystem clickParticle;
     [SerializeField] private FireBall spell;
+    [SerializeField] private Transform shotPosition;
+
+    private Vector3 moveDirection;
 
     private void Awake()
     {
@@ -24,6 +28,20 @@ public class PlayerBehavior : MonoBehaviour
     private void Start()
     {
         GameManager.Instance.InputManager.OnPlayerMove += HandleClick;
+    }
+
+    private void Update()
+    {
+        HandleMove();
+    }
+
+    private void HandleMove()
+    {
+        Vector2 inputData = GameManager.Instance.InputManager.MoveDirection;
+        moveDirection.x = inputData.x;
+        moveDirection.z = inputData.y;
+
+        transform.Translate(moveDirection * Time.deltaTime * moveSpeed);
     }
 
     private void HandleClick()
@@ -46,7 +64,7 @@ public class PlayerBehavior : MonoBehaviour
         print("Attacking");
         GetComponent<Animator>().SetTrigger("attack");
         transform.LookAt(hit.point);
-        Instantiate(spell, transform.position, transform.rotation);
+        Instantiate(spell, shotPosition.position, Quaternion.identity);
     }
 
     private void HandleMovement(RaycastHit hit)

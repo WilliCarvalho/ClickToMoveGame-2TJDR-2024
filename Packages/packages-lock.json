@@ -51,10 +51,10 @@
       "depth": 0,
       "source": "builtin",
       "dependencies": {
-        "com.unity.timeline": "1.7.5",
+        "com.unity.timeline": "1.7.4",
         "com.unity.sequences": "2.0.1",
         "com.unity.formats.fbx": "4.2.1",
-        "com.unity.formats.alembic": "2.3.2",
+        "com.unity.formats.alembic": "2.3.0",
         "com.unity.cinemachine": "2.9.5",
         "com.unity.recorder": "4.0.1"
       }
@@ -65,7 +65,7 @@
       "source": "builtin",
       "dependencies": {
         "com.unity.ide.visualstudio": "2.0.18",
-        "com.unity.ide.rider": "3.0.24",
+        "com.unity.ide.rider": "3.0.21",
         "com.unity.ide.vscode": "1.2.5",
         "com.unity.editorcoroutines": "1.0.0",
         "com.unity.performance.profile-analyzer": "1.2.2",
@@ -74,7 +74,7 @@
       }
     },
     "com.unity.formats.alembic": {
-      "version": "2.3.2",
+      "version": "2.3.0",
       "depth": 1,
       "source": "registry",
       "dependencies": {
@@ -95,7 +95,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.ide.rider": {
-      "version": "3.0.24",
+      "version": "3.0.21",
       "depth": 1,
       "source": "registry",
       "dependencies": {

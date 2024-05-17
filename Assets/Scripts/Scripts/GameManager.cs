@@ -20,4 +20,6 @@ public class GameManager : MonoBehaviour
     {
         return playerBehavior.GetPlayerAgent();
     }
+
+    public PlayerBehavior GetPlayer() => playerBehavior;
 }
